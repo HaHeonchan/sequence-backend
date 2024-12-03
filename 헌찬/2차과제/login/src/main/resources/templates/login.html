@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link href="/css/register.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="logo">
+        <img src="images/seq.png" alt="Logo">
+    </div>
+
+    <!-- 에러 메시지 표시 영역 -->
+    <div id="error-message" style="color: red; display: none;">
+        <h4>아이디나 비밀번호가 틀렸습니다.</h4>
+    </div>
+
+    <form onsubmit="loginJWT(event)">
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" required>
+        </div>
+
+        <button type="submit" class="submit-btn">로그인</button>
+    </form>
+
+    <form action="/register" method="GET">
+        <button type="submit" class="submit-btn">회원 가입</button>
+    </form>
+</div>
+
+<script>
+
+    function loginJWT(event) {
+        event.preventDefault();
+
+        fetch("/login/jwt", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                userId: document.querySelector('#userId').value,
+                password: document.querySelector('#password').value
+            })
+        })
+            .then(response => response.text())
+            .then((response) => {
+                if (response.startsWith('eyJ')) {
+                    window.location.href = "http://localhost:8081/";
+                } else {
+                    document.getElementById('error-message').style.display = 'block';
+                }
+            })
+            .catch(() => {
+                document.getElementById('error-message').style.display = 'block';
+            });
+    }
+</script>
+
+</body>
+</html>
