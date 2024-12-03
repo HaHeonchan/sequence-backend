@@ -1,0 +1,17 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MARIADB_DATABASE=users
+      - MARIADB_USER=new_user
+      - MARIADB_PASSWORD=password
+      - MARIADB_ROOT_PASSWORD=password
+    restart: always
+    volumes:
+      - mariadb_data:/var/lib/mysql  # 추가된 볼륨 매핑
+
+volumes:
+  mariadb_data:

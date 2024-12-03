@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 800px; /* 좌우로 더 넓게 */
+    padding: 20px;
+    /*background-color: #1e1e1e;*/
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 100px; /* 로고의 최대 너비를 설정 (필요에 따라 조정) */
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: transparent; /* 배경 투명 */
+    border: none;
+    border-bottom: 2px solid #555;
+    color: #e0e0e0;
+    border-radius: 4px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom: 2px solid #e63946;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #888;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e63946;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #c5303d;
+}

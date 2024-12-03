@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 폼</title>
+    <link href="/css/register.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <h1 style="text-align: center;">회원 가입</h1>
+    <div class="logo">
+        <img src="images/seq.png" alt="Logo">
+    </div>
+        <div class="form-group" th:each="i : ${accounts}">
+            <h4 th:text="${i.username}">이름</h4>
+        </div>
+    <form action="/login" method="GET">
+        <button type="submit" class="submit-btn">로그인</button>
+    </form>
+</div>
+
+</body>
+</html>
+

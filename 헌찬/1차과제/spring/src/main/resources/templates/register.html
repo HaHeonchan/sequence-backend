@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입</title>
+    <link href="/css/register.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="logo">
+        <img src="images/seq.png" alt="Logo">
+    </div>
+
+    <form action="/account" method="POST">
+        <h1 style="text-align: center;">회원 가입</h1>
+
+        <!-- 에러 메시지 표시 -->
+        <div style="color: red; text-align: center; margin-bottom: 15px;">
+            <p th:text="${error}"></p>
+        </div>
+
+        <!-- 기본 정보 -->
+        <div class="form-group">
+            <label for="username">Name:</label>
+            <input type="text" id="username" name="username" placeholder="이름을 입력해주세요" th:value="${name}" required>
+        </div>
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" th:value="${userId}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" th:value="${password}" required>
+        </div>
+
+        <button type="submit" class="submit-btn">가입하기</button>
+    </form>
+</div>
+
+</body>
+</html>
+
